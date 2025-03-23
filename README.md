@@ -8,7 +8,7 @@ K8sMed is an open-source, AI-powered troubleshooting assistant designed to act a
 
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
-- [Proposed Roadmap](#roposed-roadmap)
+- [Proposed Roadmap](#proposed-roadmap)
 - [Architecture Overview](#architecture-overview)
 - [Differentiators](#differentiators)
 - [Roadmap & Milestones](#roadmap--milestones)
