@@ -8,6 +8,7 @@ K8sMed is an open-source, AI-powered troubleshooting assistant designed to act a
 
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
+- [Proposed Roadmap](#roposed-roadmap)
 - [Architecture Overview](#architecture-overview)
 - [Differentiators](#differentiators)
 - [Roadmap & Milestones](#roadmap--milestones)
@@ -27,9 +28,22 @@ K8sMed is an open-source, AI-powered troubleshooting assistant designed to act a
 
 ## Project Overview
 
-### Vision
+Status: Conceptual / Proposal Stage
 
-K8sMed is built to simplify Kubernetes troubleshooting and reduce Mean Time to Resolution (MTTR) by acting as a real-time “first responder.” The tool is designed to be both developer-friendly and privacy-focused, making it suitable for environments where sensitive data must remain secure.
+K8sMed is a proposed open-source project aimed at revolutionizing Kubernetes troubleshooting. The idea is to create a lightweight “first responder” tool—a kubectl plugin (and optionally, a Kubernetes Operator) that leverages AI (using LLMs) to quickly analyze cluster state, diagnose issues, and suggest actionable remediation steps.
+
+This repository contains the initial project details, design proposal, and roadmap. We are in the early stages of development and are inviting contributions, ideas, and feedback from the community to help shape and build K8sMed into a practical tool for DevOps teams and Kubernetes operators.
+
+### Project Vision
+**Objective:**  
+Develop an AI-powered troubleshooting assistant for Kubernetes that:
+- Continuously gathers logs, events, and metrics.
+- Uses AI to perform root-cause analysis.
+- Provides clear, human-readable explanations and remediation commands.
+- Remains privacy-focused with support for anonymization and local AI options.
+
+Why K8sMed?
+Kubernetes environments are complex, and troubleshooting issues often require deep expertise. K8sMed is envisioned to reduce mean time to resolution (MTTR) by acting as a “first responder,” enabling both experts and non-experts to quickly understand and fix problems in their clusters.
 
 ### Goals
 
@@ -60,6 +74,26 @@ K8sMed is built to simplify Kubernetes troubleshooting and reduce Mean Time to R
 
 - **Extensible & Modular Design:**  
   Easy-to-extend architecture allows developers to add new analyzers and integrate third-party tools.
+
+---
+
+## Proposed Roadmap
+
+### Phase 1: Concept Refinement & MVP Planning (0–3 months)
+- Finalize the design and technical specifications.
+- Define a minimal set of features (data collection, basic analyzer concept, AI integration outline).
+- Develop a project proposal and invite initial community feedback.
+
+### Phase 2: Prototype Development (3–6 months)
+- Develop a prototype CLI plugin with basic data collection.
+- Integrate a proof-of-concept AI module (e.g., sending error logs to a mock AI service and returning sample remediation commands).
+- Document the prototype and gather user feedback.
+
+### Phase 3: Feature Expansion & Community Engagement (6–12 months)
+- Expand analyzers for various Kubernetes objects (Pods, Deployments, etc.).
+- Add interactive troubleshooting mode.
+- Develop the Operator version for automated scans and centralized reporting.
+- Open up contribution guidelines and actively seek community input.
 
 ---
 
