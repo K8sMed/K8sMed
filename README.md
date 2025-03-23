@@ -284,13 +284,9 @@ As we progress, we plan to add:
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
 
 ---
-
 ## Contact & Support
 
 - **Project Lead:** [Md Imran - imranaec@outlook.com] [@narmidm](https://github.com/narmidm)
-- **Community Discussions:** Join our Slack or Discord channels for discussions, feedback, and support.
-- **Documentation:** For more details, see our [Documentation Portal](https://your-org.github.io/k8smed-docs).
-
 ---
 
 ## Final Notes
