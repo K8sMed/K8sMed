@@ -8,7 +8,6 @@ K8sMed is an open-source, AI-powered troubleshooting assistant designed to act a
 
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
-- [Proposed Roadmap](#proposed-roadmap)
 - [Architecture Overview](#architecture-overview)
 - [Differentiators](#differentiators)
 - [Roadmap & Milestones](#roadmap--milestones)
@@ -74,26 +73,6 @@ Kubernetes environments are complex, and troubleshooting issues often require de
 
 - **Extensible & Modular Design:**  
   Easy-to-extend architecture allows developers to add new analyzers and integrate third-party tools.
-
----
-
-## Proposed Roadmap
-
-### Phase 1: Concept Refinement & MVP Planning (0–3 months)
-- Finalize the design and technical specifications.
-- Define a minimal set of features (data collection, basic analyzer concept, AI integration outline).
-- Develop a project proposal and invite initial community feedback.
-
-### Phase 2: Prototype Development (3–6 months)
-- Develop a prototype CLI plugin with basic data collection.
-- Integrate a proof-of-concept AI module (e.g., sending error logs to a mock AI service and returning sample remediation commands).
-- Document the prototype and gather user feedback.
-
-### Phase 3: Feature Expansion & Community Engagement (6–12 months)
-- Expand analyzers for various Kubernetes objects (Pods, Deployments, etc.).
-- Add interactive troubleshooting mode.
-- Develop the Operator version for automated scans and centralized reporting.
-- Open up contribution guidelines and actively seek community input.
 
 ---
 
@@ -280,14 +259,13 @@ Kubernetes environments are complex, and troubleshooting issues often require de
 
 ---
 
-## Contributing
+## Contributing & Getting Involved
 
-We welcome contributions from the community! If you’d like to help improve K8sMed, please follow these steps:
+Since K8sMed is at the conceptual stage, we welcome your ideas, feedback, and contributions. Here’s how you can help:
 
-1. **Fork the Repository:** Create your own fork and clone it locally.
-2. **Development Guidelines:** Read our [CONTRIBUTING.md](CONTRIBUTING.md) for coding standards and submission guidelines.
-3. **Issue Tracker:** Browse and select issues from the GitHub [issue tracker](https://github.com/your-org/k8smed/issues).
-4. **Pull Requests:** Submit a pull request with detailed descriptions of your changes. We review every submission thoroughly.
+- **Feedback:** Open issues in this repository to discuss ideas, potential challenges, and proposed features.
+- **Contributions:** If you’re interested in prototyping or developing parts of the tool (e.g., initial analyzers or AI integration modules), please submit a pull request.
+- **Discussion:** Join our community Slack or Discord channel (details below) to discuss the project roadmap and share your thoughts on the design and functionality.
 
 ---
 
