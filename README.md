@@ -122,8 +122,8 @@ K8sMed is built to simplify Kubernetes troubleshooting and reduce Mean Time to R
 
 ---
 
-## Installation
-
+## Installation 
+#### How it will look like in future
 ### CLI Plugin Installation
 
 1. **Prerequisites:**
