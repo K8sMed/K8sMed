@@ -20,6 +20,7 @@ K8sMed is an open-source, AI-powered troubleshooting assistant designed to act a
   - [Anonymization & Data Privacy](#anonymization--data-privacy)
 - [Configuration & Customization](#configuration--customization)
 - [Contributing](#contributing)
+- [Future Documentation](#future-documentation)
 - [License](#license)
 - [Contact & Support](#contact--support)
 
@@ -266,6 +267,15 @@ Since K8sMed is at the conceptual stage, we welcome your ideas, feedback, and co
 - **Feedback:** Open issues in this repository to discuss ideas, potential challenges, and proposed features.
 - **Contributions:** If you’re interested in prototyping or developing parts of the tool (e.g., initial analyzers or AI integration modules), please submit a pull request.
 - **Discussion:** Join our community Slack or Discord channel (details below) to discuss the project roadmap and share your thoughts on the design and functionality.
+
+---
+
+## Future Documentation
+
+As we progress, we plan to add:
+- Detailed architecture diagrams and design documents.
+- User guides and setup instructions for both the CLI plugin and Operator modes.
+- Contribution guidelines and a roadmap for future releases.
 
 ---
 
