@@ -85,4 +85,4 @@ If you're interested in contributing to any of these areas, please:
 2. Look for issues labeled with "good first issue" in the GitHub repository
 3. Join the community discussions in the project's communication channels
 
-We welcome contributors of all skill levels and backgrounds! 
+We welcome contributors of all skill levels and backgrounds!

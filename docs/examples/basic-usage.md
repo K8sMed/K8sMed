@@ -91,8 +91,8 @@ Example output for a pod in CrashLoopBackOff:
 Analyzing query: why is my pod myapp-pod in CrashLoopBackOff
 Explain: false, Anonymize: false
 
-The pod 'myapp-pod' is in CrashLoopBackOff state because the application is exiting with a non-zero status code. 
-According to the logs, there's a configuration error: the application is trying to connect to a database at 
+The pod 'myapp-pod' is in CrashLoopBackOff state because the application is exiting with a non-zero status code.
+According to the logs, there's a configuration error: the application is trying to connect to a database at
 'db-service.default.svc.cluster.local' but it's unable to establish a connection.
 
 Here are some remediation steps:
@@ -125,4 +125,4 @@ K8sMed provides the following commands:
 
 - `kubectl k8smed version`: Display version information
 
-- `kubectl k8smed config`: Display current configuration 
+- `kubectl k8smed config`: Display current configuration

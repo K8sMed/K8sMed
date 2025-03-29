@@ -23,7 +23,10 @@ var rootCmd = &cobra.Command{
 It leverages LLMs to diagnose issues, provide natural language explanations, and generate actionable remediation commands.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
-			cmd.Help()
+			if err := cmd.Help(); err != nil {
+				fmt.Println("Error displaying help:", err)
+				os.Exit(1)
+			}
 			os.Exit(0)
 		}
 	},

@@ -28,4 +28,4 @@ assignees: ''
 
 ## Would you be willing to contribute this feature?
 
-<!-- Let us know if you'd be interested in implementing this feature yourself --> 
+<!-- Let us know if you'd be interested in implementing this feature yourself -->

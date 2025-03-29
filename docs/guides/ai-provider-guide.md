@@ -207,4 +207,4 @@ Different models offer different performance characteristics:
 1. Be more specific in your queries
 2. Use the `--explain` flag to get more context for the model
 3. For complex issues, consider using the built-in analyzers without LLM integration
-4. If available, use models fine-tuned for technical/code understanding (like Gemma-IT) 
+4. If available, use models fine-tuned for technical/code understanding (like Gemma-IT)

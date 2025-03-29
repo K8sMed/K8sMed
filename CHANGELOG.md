@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Initial project skeleton
 - Basic CLI structure with cobra
 - Configuration handling
@@ -20,7 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2024-03-29
 
 ### Added
+
 - Initial project structure
 - Core command-line interface
 - Basic AI client integration
-- Simple anonymization features 
+- Simple anonymization features

@@ -13,9 +13,9 @@ assignees: ''
 ## Steps To Reproduce
 
 <!-- Steps to reproduce the behavior -->
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## Expected Behavior
 
@@ -44,4 +44,4 @@ Paste your logs here
 
 ## Additional Context
 
-<!-- Add any other context about the problem here --> 
+<!-- Add any other context about the problem here -->

@@ -294,4 +294,4 @@ make release
 
 ---
 
-Thank you for contributing to K8sMed! If you have questions or need help, please open an issue on GitHub or contact the maintainers directly. 
+Thank you for contributing to K8sMed! If you have questions or need help, please open an issue on GitHub or contact the maintainers directly.

@@ -88,10 +88,7 @@ func (c *OpenAIClient) Complete(ctx context.Context, req CompletionRequest) (*Co
 
 	// Copy messages
 	for i, msg := range req.Messages {
-		openAIReq.Messages[i] = openAIMessage{
-			Role:    msg.Role,
-			Content: msg.Content,
-		}
+		openAIReq.Messages[i] = openAIMessage(msg)
 	}
 
 	// Marshal request to JSON

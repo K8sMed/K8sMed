@@ -94,4 +94,4 @@ For the first phase, we should focus on:
 5. Basic anonymization feature
 6. Simple remediation suggestions
 
-This will provide a foundation that can be extended with more features in later phases. 
+This will provide a foundation that can be extended with more features in later phases.

@@ -345,4 +345,4 @@ A: K8sMed collects resource data from your cluster to send to the configured LLM
 
 ### Q: How to contribute to K8sMed?
 
-A: We welcome contributions! Please check our [CONTRIBUTING.md](../../CONTRIBUTING.md) guide and feel free to open issues or pull requests in the GitHub repository. 
+A: We welcome contributions! Please check our [CONTRIBUTING.md](../../CONTRIBUTING.md) guide and feel free to open issues or pull requests in the GitHub repository.

@@ -47,4 +47,4 @@ kubectl delete -f examples/manifests/error-pod.yaml -n default
 For additional examples and use cases, check out the [docs/examples](../docs/examples/) directory, which includes:
 
 - [Basic Usage Guide](../docs/examples/basic-usage.md)
-- [Integration with Gemma AI](../docs/examples/gemma-integration.md) 
+- [Integration with Gemma AI](../docs/examples/gemma-integration.md)

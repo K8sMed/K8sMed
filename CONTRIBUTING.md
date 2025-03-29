@@ -138,10 +138,10 @@ go test -v ./...
 ## Community
 
 - Join our [Slack/Discord channel](#) for discussions
-- Attend community meetings 
+- Attend community meetings
 - Follow our [Twitter](#) for updates
 - Subscribe to our newsletter
 
 ---
 
-Thank you for contributing to K8sMed! Your efforts help make Kubernetes troubleshooting easier for everyone. 
+Thank you for contributing to K8sMed! Your efforts help make Kubernetes troubleshooting easier for everyone.

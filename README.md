@@ -50,22 +50,22 @@ Kubernetes environments are complex, and troubleshooting issues often requires d
 
 ## Key Features
 
-- **Comprehensive Analysis**:  
+- **Comprehensive Analysis**: 
   Analyze pods, deployments, services, and other Kubernetes resources for common issues
 
-- **Multi-Provider AI Support**:  
+- **Multi-Provider AI Support**: 
   Use OpenAI models (GPT-3.5/4) or local alternatives (LocalAI, Ollama) for analysis
 
-- **Anonymization**:  
+- **Anonymization**: 
   Protect sensitive information with built-in data anonymization
 
-- **Actionable Commands**:  
+- **Actionable Commands**: 
   Receive ready-to-use kubectl commands for quick remediation
 
-- **Context-Aware Analysis**:  
+- **Context-Aware Analysis**: 
   Intelligent understanding of Kubernetes concepts and relationships between resources
 
-- **Local-First Architecture**:  
+- **Local-First Architecture**: 
   Run entirely in your environment without requiring external services
 
 ---

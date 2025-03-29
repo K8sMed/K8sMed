@@ -55,10 +55,7 @@ func (c *LocalAIClient) Complete(ctx context.Context, req CompletionRequest) (*C
 
 	// Copy messages
 	for i, msg := range req.Messages {
-		localAIReq.Messages[i] = openAIMessage{
-			Role:    msg.Role,
-			Content: msg.Content,
-		}
+		localAIReq.Messages[i] = openAIMessage(msg)
 	}
 
 	// Marshal request to JSON

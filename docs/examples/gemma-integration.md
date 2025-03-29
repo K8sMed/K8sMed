@@ -70,7 +70,7 @@ kubectl-k8smed analyze "why would a pod have ImagePullBackOff status" --explain
    ```bash
    # macOS with Homebrew
    brew install ngrok
-   
+  
    # Linux
    curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
      sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && \
@@ -129,7 +129,7 @@ kubectl-k8smed analyze "why would a pod have ImagePullBackOff status" --explain
      --namespace=k8smed-system \
      --from-literal=openai_api_key=placeholder \
      --dry-run=client -o yaml > deploy/manifests/secret.yaml
-   
+  
    kubectl apply -f deploy/manifests/secret.yaml
    ```
 
@@ -158,7 +158,7 @@ kubectl-k8smed analyze "why would a pod have ImagePullBackOff status" --explain
    ```bash
    # Get the pod name
    K8SMED_POD=$(kubectl get pods -n k8smed-system -o jsonpath='{.items[0].metadata.name}')
-   
+  
    # Run a test query
    kubectl exec -it -n k8smed-system $K8SMED_POD -- kubectl-k8smed analyze "pod test-pod has ImagePullBackOff"
    ```
@@ -253,4 +253,4 @@ Here's a complete example of deploying and using K8sMed with Gemma, based on our
    kubectl exec -it -n k8smed-system $K8SMED_POD -- kubectl-k8smed analyze "pod test-error-pod has ImagePullBackOff"
    ```
 
-6. Review the analysis and remediation steps provided by Gemma. 
+6. Review the analysis and remediation steps provided by Gemma.

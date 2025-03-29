@@ -63,7 +63,7 @@ While we have added significant functionality, the following areas still need wo
 ## Running the Project
 
 Currently, the project can:
-- Parse command-line arguments 
+- Parse command-line arguments
 - Show help and version information
 - Support configuration via environment variables
 - Connect to LLM providers (when API keys are provided)
@@ -79,4 +79,4 @@ The immediate next steps are outlined in NEXT_STEPS.md, with the highest priorit
 
 ## Contributing
 
-We welcome contributions! Please see the CONTRIBUTING.md file for guidelines on how to get involved. 
+We welcome contributions! Please see the CONTRIBUTING.md file for guidelines on how to get involved.
