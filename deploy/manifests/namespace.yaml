@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: k8smed-system
+  labels:
+    app.kubernetes.io/name: k8smed
+    app.kubernetes.io/part-of: k8smed 

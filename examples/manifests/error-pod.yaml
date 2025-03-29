@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-error-pod
+  namespace: default
+  labels:
+    app: test-pod
+    purpose: k8smed-demo
+spec:
+  containers:
+  - name: error-container
+    image: nonexistentimage:latest
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "100m"
+  restartPolicy: Never
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: crash-loop-pod
+  namespace: default
+  labels:
+    app: test-pod
+    purpose: k8smed-demo
+spec:
+  containers:
+  - name: crash-container
+    image: busybox:latest
+    imagePullPolicy: IfNotPresent
+    command: ["/bin/sh", "-c"]
+    args:
+      - "echo 'This container will crash in 5 seconds...'; sleep 5; exit 1"
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "100m"
+  restartPolicy: Always
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oom-kill-pod
+  namespace: default
+  labels:
+    app: test-pod
+    purpose: k8smed-demo
+spec:
+  containers:
+  - name: memory-hog
+    image: alpine:latest
+    imagePullPolicy: IfNotPresent
+    command: ["/bin/sh", "-c"]
+    args:
+      - "apk add --no-cache python3 && python3 -c 'import numpy as np; a = np.ones((500, 500, 500))'"
+    resources:
+      limits:
+        memory: "50Mi"
+        cpu: "100m"
+  restartPolicy: Always 

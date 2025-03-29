@@ -1,0 +1,57 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+
+# Test binary, build with `go test -c`
+*.test
+
+# Test files
+test-k8smed.go
+pod-analyzer-test.go
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+vendor/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS specific files
+.DS_Store
+
+# Kubernetes generated files
+kubeconfig
+.kubeconfig
+
+# Environment variables
+.env
+.env.local
+
+# Local development files
+/.kube
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
+*.cer
+*.csr
+
+# Build artifacts
+/dist/
+/build/
+
+# Temporary files
+/tmp/
+*.tmp
+*.log 

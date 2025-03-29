@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  ai_endpoint: https://bffb-103-215-237-215.ngrok-free.app/v1/chat/completions
+  ai_model: gemma-3-4b-it
+  ai_provider: localai
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: k8smed-config
+  namespace: k8smed-system

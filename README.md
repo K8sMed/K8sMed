@@ -1,6 +1,9 @@
 # K8sMed: AI-Powered Kubernetes First Responder
 
-K8sMed is an open-source, AI-powered troubleshooting assistant designed to act as a first responder for Kubernetes clusters. By continuously monitoring cluster logs, events, and metrics, K8sMed leverages Large Language Models (LLMs) to diagnose issues, provide natural language explanations, and generate actionable remediation commands—all through a simple kubectl plugin and Operator.
+K8sMed is an open-source, AI-powered troubleshooting assistant designed to act as a first responder for Kubernetes clusters. By analyzing cluster logs, events, and metrics, K8sMed leverages Large Language Models (LLMs) to diagnose issues, provide natural language explanations, and generate actionable remediation commands—all through a simple kubectl plugin.
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/k8smed/k8smed)](https://goreportcard.com/report/github.com/k8smed/k8smed)
 
 ---
 
@@ -8,289 +11,313 @@ K8sMed is an open-source, AI-powered troubleshooting assistant designed to act a
 
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
-- [Architecture Overview](#architecture-overview)
-- [Differentiators](#differentiators)
-- [Roadmap & Milestones](#roadmap--milestones)
+- [Architecture](#architecture)
 - [Installation](#installation)
-  - [CLI Plugin Installation](#cli-plugin-installation)
-  - [Operator Deployment](#operator-deployment)
 - [Usage](#usage)
-  - [Basic Commands](#basic-commands)
-  - [Interactive Mode](#interactive-mode)
-  - [Anonymization & Data Privacy](#anonymization--data-privacy)
-- [Configuration & Customization](#configuration--customization)
+- [Configuration](#configuration)
+- [Examples](#examples)
+- [Documentation](#documentation)
+- [Privacy & Security](#privacy--security)
 - [Contributing](#contributing)
-- [Future Documentation](#future-documentation)
+- [Roadmap](#roadmap)
 - [License](#license)
-- [Contact & Support](#contact--support)
+- [Contact](#contact)
 
 ---
 
 ## Project Overview
 
-Status: Conceptual / Proposal Stage
+K8sMed helps Kubernetes administrators and developers troubleshoot issues faster by acting as a "first responder" for cluster problems. The tool analyzes Kubernetes resources, interprets error messages, and generates clear explanations and remediation steps using AI.
 
-K8sMed is a proposed open-source project aimed at revolutionizing Kubernetes troubleshooting. The idea is to create a lightweight “first responder” tool—a kubectl plugin (and optionally, a Kubernetes Operator) that leverages AI (using LLMs) to quickly analyze cluster state, diagnose issues, and suggest actionable remediation steps.
+### Why K8sMed?
 
-This repository contains the initial project details, design proposal, and roadmap. We are in the early stages of development and are inviting contributions, ideas, and feedback from the community to help shape and build K8sMed into a practical tool for DevOps teams and Kubernetes operators.
+Kubernetes environments are complex, and troubleshooting issues often requires deep expertise. K8sMed reduces mean time to resolution (MTTR) by:
 
-### Project Vision
-**Objective:**  
-Develop an AI-powered troubleshooting assistant for Kubernetes that:
-- Continuously gathers logs, events, and metrics.
-- Uses AI to perform root-cause analysis.
-- Provides clear, human-readable explanations and remediation commands.
-- Remains privacy-focused with support for anonymization and local AI options.
-
-Why K8sMed?
-Kubernetes environments are complex, and troubleshooting issues often require deep expertise. K8sMed is envisioned to reduce mean time to resolution (MTTR) by acting as a “first responder,” enabling both experts and non-experts to quickly understand and fix problems in their clusters.
+- Providing instant analysis of Kubernetes resources
+- Explaining problems in clear, human-readable language
+- Generating actionable remediation commands
+- Supporting both beginners and experienced Kubernetes users
 
 ### Goals
 
-- **Rapid Diagnosis:** Automatically detect anomalies and provide clear, step-by-step remediation instructions.
-- **Actionable Insights:** Generate copy-paste-ready `kubectl` commands and YAML patches.
-- **Privacy First:** Anonymize sensitive data and support local LLM deployments.
-- **Modular Extensibility:** Allow users to add custom analyzers for specific resources and error patterns.
-- **Seamless Integration:** Offer both CLI (kubectl plugin) and Operator deployments to fit different operational needs.
+- **Rapid Diagnosis**: Quickly identify issues across different Kubernetes resources
+- **Actionable Insights**: Generate precise kubectl commands and YAML patches
+- **Privacy First**: Anonymize sensitive data with built-in protection
+- **Flexibility**: Support both cloud-based and local AI models
+- **Seamless Experience**: Simple kubectl plugin interface
 
 ---
 
 ## Key Features
 
-- **Real-Time Monitoring & Collection:**  
-  Fetch logs, events, and metrics using kubectl and integrations with Prometheus, Trivy, etc.
+- **Comprehensive Analysis**:  
+  Analyze pods, deployments, services, and other Kubernetes resources for common issues
 
-- **AI-Powered Analysis & Explanation:**  
-  Leverage cloud-based LLMs (e.g., OpenAI’s GPT-3.5/4) or local solutions (LocalAI/Ollama) to process collected data and generate natural language diagnostics.
+- **Multi-Provider AI Support**:  
+  Use OpenAI models (GPT-3.5/4) or local alternatives (LocalAI, Ollama) for analysis
 
-- **Actionable Remediation:**  
-  Output precise remediation commands or YAML manifest updates to resolve issues immediately.
+- **Anonymization**:  
+  Protect sensitive information with built-in data anonymization
 
-- **Interactive Troubleshooting Mode:**  
-  Engage in a conversational, iterative troubleshooting session via an interactive CLI mode.
+- **Actionable Commands**:  
+  Receive ready-to-use kubectl commands for quick remediation
 
-- **Privacy & Security:**  
-  Built-in anonymization ensures that only essential, non-sensitive data is shared with AI backends. Local deployment of LLMs is supported for air-gapped or high-security environments.
+- **Context-Aware Analysis**:  
+  Intelligent understanding of Kubernetes concepts and relationships between resources
 
-- **Extensible & Modular Design:**  
-  Easy-to-extend architecture allows developers to add new analyzers and integrate third-party tools.
-
----
-
-## Architecture Overview
-
-### Components
-
-1. **Data Collection Layer:**  
-   - Utilizes standard kubectl commands and integrations (e.g., Prometheus, Trivy) to gather cluster state, logs, and events.
-2. **Preprocessing & Analyzer Module:**  
-   - Filters and formats data for AI processing.
-   - Contains built-in analyzers for common Kubernetes objects (Pods, Deployments, Nodes, etc.) and supports custom analyzer plugins.
-3. **AI Interface Layer:**  
-   - Connects to one or more LLM backends.
-   - Provides both one-off analysis and an interactive troubleshooting session.
-4. **Remediation Module:**  
-   - Converts AI output into actionable commands (e.g., `kubectl patch` or YAML updates).
-   - Optionally integrates with CI/CD systems for automation.
-5. **Operator Mode (Optional):**  
-   - Deployed as a Kubernetes Operator, it automates periodic scans and aggregates diagnostic results as custom resources, which can be queried centrally.
+- **Local-First Architecture**:  
+  Run entirely in your environment without requiring external services
 
 ---
 
-## Differentiators
+## Architecture
 
-- **Focused First Responder:**  
-  K8sMed is specifically designed for rapid troubleshooting, not just manifest generation or alerting.
-- **Privacy-First Design:**  
-  Offers built-in anonymization and supports local LLMs, addressing data security concerns.
-- **Lightweight & Developer-Friendly:**  
-  Minimal setup with both CLI and Operator options, reducing friction for both experts and non-experts.
-- **Actionable Guidance:**  
-  Provides detailed, step-by-step remediation commands that are easy to understand and implement.
-- **Modular Extensibility:**  
-  A pluggable architecture that allows easy addition of new analyzers and integration with external tools.
+K8sMed follows a modular architecture with these key components:
+
+1. **Resource Collection**: Gathers information about Kubernetes resources
+2. **Problem Analysis**: Examines resources for potential issues
+3. **AI Processing**: Sends anonymized data to AI for interpretation
+4. **Remediation Generation**: Creates actionable commands to fix issues
+
+The tool runs as a kubectl plugin, requiring only kubectl access to your cluster.
 
 ---
 
-## Roadmap & Milestones
+## Installation
 
-### Phase 1: MVP Development (0–3 months)
-- Implement core CLI plugin functionality:
-  - Data collection from Kubernetes cluster.
-  - Basic set of analyzers (e.g., for Pods, Deployments, Services).
-  - Integration with a default LLM (e.g., GPT-3.5-Turbo).
-  - Anonymization feature.
-- Publish initial version on GitHub as a kubectl plugin.
+### Prerequisites
 
-### Phase 2: Extended Features (3–6 months)
-- Develop additional analyzers for complex resources (e.g., StatefulSets, CronJobs, Network Policies).
-- Add support for multiple AI backends (local and cloud-based).
-- Build interactive troubleshooting mode.
-- Begin developing the Operator version for continuous monitoring and centralized reporting.
+- Kubernetes cluster with kubectl access
+- Go 1.21+ (for building from source)
+- Access to an AI provider (OpenAI account or local AI setup)
 
-### Phase 3: Community Integration & Ecosystem Expansion (6–12 months)
-- Open up contribution guidelines and foster community involvement.
-- Integrate with external tools (e.g., CI/CD, alerting systems).
-- Extend documentation and create use-case examples, tutorials, and webinars.
-- Enhance remediation module with automated patch application features.
+### Quick Install
 
----
+```bash
+# Clone the repository
+git clone https://github.com/k8smed/k8smed.git
+cd k8smed
 
-## Installation 
-#### How it will look like in future
-### CLI Plugin Installation
+# Build the binary
+make build
 
-1. **Prerequisites:**
-   - Kubernetes cluster with `kubectl` configured.
-   - Go 1.18+ installed (for building from source).
-   - An LLM API key (if using a cloud-based LLM) or set up a local LLM backend.
+# Install the kubectl plugin
+make install
+```
 
-2. **Clone and Build:**
+### Verify Installation
 
-   ```bash
-   git clone https://github.com/your-org/k8smed.git
-   cd k8smed
-   go build -o kubectl-k8smed .
-   ```
-
-3. **Add to PATH:**
-   - Move the binary to a directory in your PATH (e.g., `/usr/local/bin`):
-
-   ```bash
-   sudo mv kubectl-k8smed /usr/local/bin/
-   ```
-
-4. **Verify Installation:**
-
-   ```bash
-   kubectl k8smed version
-   ```
-
-### Operator Deployment
-
-1. **Helm Chart:**
-   - A Helm chart is provided to deploy K8sMed as an Operator.
-   - Configure the chart values (AI backend, scan frequency, etc.) as needed.
-   
-2. **Deploy the Operator:**
-
-   ```bash
-   helm repo add k8smed https://your-org.github.io/k8smed-charts
-   helm install k8smed-operator k8smed/k8smed-operator --namespace k8smed-system --create-namespace
-   ```
-
-3. **Configure the Custom Resource:**
-   - Create a YAML file (e.g., `k8smed-cr.yaml`) that defines your scan configuration:
-
-   ```yaml
-   apiVersion: k8smed.io/v1
-   kind: K8sMed
-   metadata:
-     name: default-scan
-     namespace: k8smed-system
-   spec:
-     aiBackend: "openai"
-     model: "gpt-3.5-turbo"
-     scanInterval: "5m"
-     anonymize: true
-   ```
-
-4. **Apply the Custom Resource:**
-
-   ```bash
-   kubectl apply -f k8smed-cr.yaml
-   ```
+```bash
+kubectl k8smed version
+```
 
 ---
 
 ## Usage
 
-### Basic Commands
+### Basic Analysis
 
-- **Run a One-Off Analysis:**
+```bash
+# Analyze a pod with issues
+kubectl k8smed analyze pod my-pod-name --namespace default
 
-  ```bash
-  kubectl k8smed analyze "explain why pod myapp-123 is in CrashLoopBackOff"
-  ```
+# Analyze with a specific question
+kubectl k8smed query "Why is my pod in CrashLoopBackOff state?"
 
-- **Generate Remediation Command:**
+# Get remediation suggestions
+kubectl k8smed suggest pod my-pod-name
+```
 
-  ```bash
-  kubectl k8smed analyze --explain "increase memory limit for myapp-123"
-  ```
+### Anonymization
 
-### Interactive Mode
+```bash
+# Enable anonymization to protect sensitive data
+kubectl k8smed analyze pod my-pod-name --anonymize
+```
 
-- **Start Interactive Troubleshooting:**
+### Using Different AI Providers
 
-  ```bash
-  kubectl k8smed interactive
-  ```
+```bash
+# Use OpenAI
+export OPENAI_API_KEY=your_api_key
+kubectl k8smed analyze pod my-pod-name
 
-  In interactive mode, type queries, and the assistant will maintain context for follow-up questions.
-
-### Anonymization & Data Privacy
-
-- Use the `--anonymize` flag to mask sensitive information in queries:
-
-  ```bash
-  kubectl k8smed analyze --explain --anonymize "diagnose issues in namespace sensitive-ns"
-  ```
-
-- For high-security environments, configure K8sMed to use a local LLM by setting environment variables (e.g., `LOCAL_LLM=true` and `LLM_ENDPOINT=http://localhost:8080`).
-
----
-
-## Configuration & Customization
-
-- **AI Backend Configuration:**
-  - Set your AI backend by exporting the necessary environment variables:
-
-    ```bash
-    export OPENAI_API_KEY=your_openai_api_key
-    export AI_BACKEND=openai
-    export MODEL_NAME=gpt-3.5-turbo
-    ```
-
-- **Custom Analyzers:**
-  - Developers can add new analyzers by creating Go modules that implement the Analyzer interface. See `docs/developing-analyzers.md` for guidelines.
-
-- **Operator Config Options:**
-  - Adjust the scan interval, target namespaces, and filters via the custom resource configuration.
+# Use LocalAI
+export K8SMED_AI_PROVIDER=localai
+export K8SMED_AI_ENDPOINT=http://localhost:8080
+kubectl k8smed analyze pod my-pod-name
+```
 
 ---
 
-## Contributing & Getting Involved
+## Configuration
 
-Since K8sMed is at the conceptual stage, we welcome your ideas, feedback, and contributions. Here’s how you can help:
+K8sMed can be configured using environment variables:
 
-- **Feedback:** Open issues in this repository to discuss ideas, potential challenges, and proposed features.
-- **Contributions:** If you’re interested in prototyping or developing parts of the tool (e.g., initial analyzers or AI integration modules), please submit a pull request.
-- **Discussion:** Join our community Slack or Discord channel (details below) to discuss the project roadmap and share your thoughts on the design and functionality.
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `K8SMED_AI_PROVIDER` | AI provider (openai, localai) | openai |
+| `K8SMED_AI_MODEL` | Model name to use | gpt-3.5-turbo |
+| `K8SMED_AI_ENDPOINT` | API endpoint for LocalAI | - |
+| `K8SMED_ANONYMIZE_DEFAULT` | Enable anonymization by default | false |
+| `K8SMED_OUTPUT_FORMAT` | Output format (text, json) | text |
+| `OPENAI_API_KEY` | OpenAI API key | - |
 
 ---
 
-## Future Documentation
+## Examples
 
-As we progress, we plan to add:
-- Detailed architecture diagrams and design documents.
-- User guides and setup instructions for both the CLI plugin and Operator modes.
-- Contribution guidelines and a roadmap for future releases.
+### Diagnosing a Pod in CrashLoopBackOff
+
+```bash
+kubectl k8smed analyze pod nginx-deployment-665d87f687-abcde
+```
+
+Output:
+```
+📋 K8sMed Analysis:
+🔍 Pod nginx-deployment-665d87f687-abcde is in CrashLoopBackOff state
+
+📝 Description:
+The container is repeatedly crashing after startup. The exit code 1 suggests
+the application is exiting with an error.
+
+✅ Remediation:
+1. Check container logs: kubectl logs nginx-deployment-665d87f687-abcde
+2. Verify environment variables are set correctly
+3. Check if the application can connect to required services
+4. Inspect the startup command for errors
+
+💻 Remediation Commands:
+kubectl logs nginx-deployment-665d87f687-abcde
+kubectl describe pod nginx-deployment-665d87f687-abcde
+```
+
+### More Examples
+
+Check out our [examples directory](docs/examples/) for more use cases, including:
+- Troubleshooting ImagePullBackOff errors
+- Fixing service connectivity issues
+- Resolving permission problems
+- Debugging deployment rollout issues
+
+---
+
+## Documentation
+
+Detailed documentation is available in the [docs directory](docs/):
+
+- [Deployment Guide](docs/guides/deployment-guide.md)
+- [AI Provider Guide](docs/guides/ai-provider-guide.md)
+- [Developer Guide](docs/guides/developer-guide.md) - For contributors and developers
+- [Gemma Integration](docs/examples/gemma-integration.md)
+- [Basic Usage Guide](docs/examples/basic-usage.md)
+
+---
+
+## Privacy & Security
+
+K8sMed takes privacy seriously:
+
+- **Anonymization**: Built-in anonymization replaces sensitive information before sending to AI providers
+- **Local AI Support**: Run entirely in your environment with LocalAI or similar tools
+- **Minimal Permissions**: Requires only read access to your cluster
+- **No Data Storage**: K8sMed doesn't store any cluster information
+
+For sensitive environments, we recommend:
+1. Using the `--anonymize` flag
+2. Setting up a local AI model
+3. Reviewing prompts sent to the AI
+
+---
+
+## Contributing
+
+We welcome contributions to K8sMed! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
+
+- Setting up your development environment
+- Running tests
+- Submitting pull requests
+- Our code of conduct
+
+For technical details about the codebase, architecture, and development workflows, check out our [Developer Guide](docs/guides/developer-guide.md).
+
+---
+
+## Roadmap
+
+### Current Focus (Q2-Q3 2023)
+- Expanding resource analyzers beyond pods
+  - Implementing dedicated analyzers for Deployments, Services, and StatefulSets
+  - Creating specialized analyzers for Ingress resources and NetworkPolicies
+  - Adding support for Custom Resource analysis
+- Improving detection accuracy for common Kubernetes issues
+  - Building a comprehensive database of error patterns and solutions
+  - Enhancing context-awareness for multi-resource related problems
+  - Developing specialized analyzers for networking and storage issues
+- Enhancing remediation suggestions for complex scenarios
+  - Providing tiered remediation options (quick fixes vs. root cause solutions)
+  - Supporting YAML patch generation for configuration fixes
+  - Adding simulation capabilities to preview remediation effects
+- Adding support for more AI providers and models
+  - Implementing dedicated connectors for Anthropic Claude and Google Gemini
+  - Optimizing prompts for different model capabilities
+  - Creating an abstract provider interface for easy extensions
+
+### Next Steps (Q3-Q4 2023)
+- **Interactive Mode Development**
+  - Building a conversational CLI interface for multi-turn troubleshooting
+  - Implementing session context management for follow-up questions
+  - Adding support for exploration-based problem solving with AI guidance
+- **Plugin Ecosystem**
+  - Creating an extension system for community-contributed analyzers
+  - Developing a plugin marketplace or registry
+  - Publishing a plugin development guide with examples
+- **Performance Optimizations**
+  - Implementing parallel resource collection and analysis
+  - Adding result caching for faster repeat analysis
+  - Optimizing token usage for more efficient AI interactions
+- **Integration Capabilities**
+  - Building connectors for popular monitoring systems (Prometheus, Grafana)
+  - Developing webhook support for automated analysis triggering
+  - Creating integration points for CI/CD systems
+
+### Future Plans (2024+)
+- Operator mode for continuous monitoring
+  - Custom resource definitions for scheduled analysis
+  - Alert integration for automatic problem detection
+  - Historical analysis storage and trending
+- AI training on Kubernetes-specific datasets
+  - Creating specialized fine-tuned models for Kubernetes troubleshooting
+  - Building synthetic problem datasets for improved accuracy
+- Advanced visualization capabilities
+  - Resource relationship mapping for complex issues
+  - Root cause probability visualizations
+  - Remediation impact previews
+
+## Getting Involved
+
+We're actively seeking contributors in the following areas:
+1. **Analyzer Development**: Help build analyzers for specific Kubernetes resources
+2. **AI Integration**: Assist with implementing new AI provider integrations
+3. **Documentation**: Improve guides, examples, and tutorials
+4. **Testing**: Create test cases and validation frameworks
+
+If you're interested in contributing, check out our [open issues](https://github.com/k8smed/k8smed/issues) labeled with "good first issue" or "help wanted", or reach out through our contact channels.
 
 ---
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+K8sMed is licensed under the [Apache License 2.0](LICENSE).
 
 ---
-## Contact & Support
 
-- **Project Lead:** [Md Imran - imranaec@outlook.com] [@narmidm](https://github.com/narmidm)
----
+## Contact
 
-## Final Notes
-
-K8sMed aims to become the definitive AI-powered troubleshooting assistant for Kubernetes. With its focused “first responder” design, privacy-first architecture, and actionable remediation guidance, it is poised to transform how DevOps teams manage and troubleshoot Kubernetes clusters. We look forward to your feedback and contributions as we kick off this project!
+- GitHub Issues: [Submit an issue](https://github.com/k8smed/k8smed/issues)
+- Project Lead: [Md Imran](https://github.com/narmidm)
 
 ---
+
+K8sMed aims to revolutionize Kubernetes troubleshooting with an AI-powered approach that delivers fast, accurate, and actionable insights. We invite you to try it out, provide feedback, and join our community of contributors!

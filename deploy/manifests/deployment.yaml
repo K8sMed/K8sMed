@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8smed
+  namespace: k8smed-system
+  labels:
+    app.kubernetes.io/name: k8smed
+    app.kubernetes.io/part-of: k8smed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: k8smed
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: k8smed
+        app.kubernetes.io/part-of: k8smed
+    spec:
+      serviceAccountName: k8smed
+      containers:
+      - name: k8smed
+        image: k8smed:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/sh"]
+        args: ["-c", "echo 'K8sMed agent running in daemon mode'; while true; do sleep 3600; done"]
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        env:
+        - name: K8SMED_AI_PROVIDER
+          valueFrom:
+            configMapKeyRef:
+              name: k8smed-config
+              key: ai_provider
+              optional: true
+        - name: K8SMED_AI_MODEL
+          valueFrom:
+            configMapKeyRef:
+              name: k8smed-config
+              key: ai_model
+              optional: true
+        - name: K8SMED_AI_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: k8smed-config
+              key: ai_endpoint
+              optional: true
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: k8smed-secrets
+              key: openai_api_key
+              optional: true
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000 

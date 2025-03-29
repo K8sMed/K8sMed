@@ -1,0 +1,28 @@
+# K8sMed CODEOWNERS file
+#
+# This file defines the code owners for different parts of the repository.
+# Code owners are automatically requested for review when someone opens a pull request.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners for everything in the repo
+* @narmidm
+
+# Documentation
+/docs/ @narmidm
+*.md @narmidm
+
+# Core application code
+/pkg/ @narmidm
+/cmd/ @narmidm
+/internal/ @narmidm
+
+# Tests
+/tests/ @narmidm
+
+# Build and deployment
+/deploy/ @narmidm
+Dockerfile @narmidm
+Makefile @narmidm
+
+# GitHub specific files
+/.github/ @narmidm 

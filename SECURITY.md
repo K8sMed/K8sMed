@@ -2,20 +2,34 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+K8sMed is currently in active development. The following versions are currently supported with security updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 0.1.x   | :white_check_mark: |
+| < 0.1   | :x:                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+We take the security of K8sMed seriously. If you believe you've found a security vulnerability, please follow these steps:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+1. **Do not disclose the vulnerability publicly**
+2. **Email the core maintainers directly at [k8smed.security@example.com]** with details about the vulnerability
+3. Include the following information:
+   - Description of the vulnerability
+   - Steps to reproduce
+   - Potential impact
+   - Any suggested mitigations (if known)
+
+The maintainers will acknowledge receipt of your report within 48 hours and will provide an estimated timeline for a fix.
+
+## Security Best Practices
+
+When using K8sMed, consider the following security practices:
+
+1. Use the anonymization feature when sharing diagnostics with external AI providers
+2. Run K8sMed with minimal required permissions in your Kubernetes cluster
+3. For sensitive environments, consider using LocalAI or other self-hosted AI providers
+4. Review the AI prompts and responses for any sensitive information before sharing
+
+Thank you for helping keep K8sMed and its users safe!
