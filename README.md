@@ -246,7 +246,7 @@ For technical details about the codebase, architecture, and development workflow
 
 ## Roadmap
 
-### Current Focus (Q2-Q3 2023)
+### Current Focus (Q2-Q3 2025)
 - Expanding resource analyzers beyond pods
   - Implementing dedicated analyzers for Deployments, Services, and StatefulSets
   - Creating specialized analyzers for Ingress resources and NetworkPolicies
@@ -264,7 +264,7 @@ For technical details about the codebase, architecture, and development workflow
   - Optimizing prompts for different model capabilities
   - Creating an abstract provider interface for easy extensions
 
-### Next Steps (Q3-Q4 2023)
+### Next Steps (Q3-Q4 2025)
 - **Interactive Mode Development**
   - Building a conversational CLI interface for multi-turn troubleshooting
   - Implementing session context management for follow-up questions
