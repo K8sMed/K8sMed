@@ -21,7 +21,7 @@ GOOS ?= $(shell go env GOOS)
 GOARCH ?= $(shell go env GOARCH)
 
 # Build targets
-.PHONY: all build clean install uninstall fmt lint vet test help tools coverage integration-test docs docker
+.PHONY: all build clean install uninstall fmt lint vet test help tools coverage integration-test docs docker prepare-release
 
 all: build
 
@@ -61,6 +61,19 @@ test:
 
 run: build
 	$(BINDIR)/$(BIN)
+
+# Prepare release by updating CHANGELOG.md
+prepare-release:
+	@if [ -z "$(NEW_VERSION)" ]; then \
+		echo "ERROR: Please specify NEW_VERSION, e.g., make prepare-release NEW_VERSION=0.1.0"; \
+		exit 1; \
+	fi
+	@echo "Preparing release $(NEW_VERSION)..."
+	@TODAY=$$(date +%Y-%m-%d); \
+	awk '/## \[Unreleased\]/ { print; print "\n## [$(NEW_VERSION)] - "ENVIRON["TODAY"]"\n"; next } /^## / { unreleased=0 } { print }' CHANGELOG.md > CHANGELOG.md.new && \
+	mv CHANGELOG.md.new CHANGELOG.md
+	@echo "CHANGELOG.md updated for version $(NEW_VERSION). Please review and commit the changes."
+	@echo "After committing, create a tag with: git tag v$(NEW_VERSION) && git push origin v$(NEW_VERSION)"
 
 # Tools installation
 tools:
@@ -136,4 +149,5 @@ help:
 	@echo "  check         - Run all code quality checks"
 	@echo "  release       - Build for multiple platforms"
 	@echo "  cross-build   - Build for a specific OS/arch (use GOOS and GOARCH variables)"
+	@echo "  prepare-release - Update CHANGELOG.md for a new release (use NEW_VERSION=x.y.z)"
 	@echo "  help          - Show this help" 
