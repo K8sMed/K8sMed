@@ -1,5 +1,9 @@
 # K8sMed: AI-Powered Kubernetes First Responder
 
+<p align="center">
+  <img src="docs/assets/images/logo.png" alt="K8sMed Logo" width="200"/>
+</p>
+
 K8sMed is an open-source, AI-powered troubleshooting assistant designed to act as a first responder for Kubernetes clusters. By analyzing cluster logs, events, and metrics, K8sMed leverages Large Language Models (LLMs) to diagnose issues, provide natural language explanations, and generate actionable remediation commands—all through a simple kubectl plugin.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
